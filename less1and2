@@ -1,0 +1,442 @@
+# Udacity Introduction to Computer Science Class
+# Notes and snippets - all in Python
+#Fall 2016
+
+#####################################
+#Lesson One
+# Variables Quiz
+# Given the variables defined here, write Python 
+# code that prints out the distance, in meters, 
+# that light travels in one processor cycle. 
+
+# speed_of_light in meters per second
+# cycles_per_second is 2.7 GHz
+
+speed_of_light = 299792458.0 
+cycles_per_second = 2700000000.0
+print speed_of_light / cycles_per_second
+########################################
+#Spirit Age Quiz
+# Write python code that defines the variable 
+# age to be your age in years, and then prints 
+# out the number of days you have been alive.
+
+age = 45
+
+print (age / 4) + (age * 365)
+#####################################
+#Quiz Capital Udacity
+# Write Python code that prints out Udacity (with a capital U), 
+# given the definition of s below.
+
+s = 'audacity'
+
+print str.capitalize(s[1:8])
+#print str.upper (s [1:2])
+#print str.lower (s[2:8 ])
+#######################################
+#Quiz Extracting Links
+# Write Python code that initializes the variable
+# start_link to be the value of the position
+# where the first '<a href=' occurs in a page.
+
+page = '''<div id="top_bin"> <div id="top_content" class="width960">
+   <div class="udacity float-left"> <a href="/">'''
+
+start_link = page.find
+######################################
+#Lesson One Final Quiz
+# Write Python code that assigns to the 
+# variable url a string that is the value 
+# of the first URL that appears in a link 
+# tag in the string page.
+# Your code should print http://udacity.com
+# Make sure that if page were changed to
+
+#page = '<a href="http://udacity.com">Hello world</a>'
+
+# that your code still assigns the same value to the variable 'url', 
+# and therefore still prints the same thing.
+
+# page = contents of a web page
+page =('<div id="top_bin"><div id="top_content" class="width960">'
+'<div class="udacity float-left"><a href="http://udacity.com">')
+start_link = page.find('<a href=')
+end_link=page.find('>',start_link)-1
+start_url = start_link + 9
+
+url = page[start_url:end_link]
+
+print url
+
+
+############################################
+# Lesson One - Text Replacement Quiz
+###############################################
+#       Exercise by Websten from forums       #
+###############################################
+# To minimize errors when writing long texts with
+# complicated expressions you could replace 
+# the tricky parts with a marker. 
+# Write a program that takes a line of text and 
+# finds the first occurrence of a certain marker 
+# and replaces it with a replacement text. 
+# The resulting line of text should be stored in a variable. 
+# All input data will be given as variables.
+#
+# Replace the first occurrence of marker in the line below.
+# There will be at least one occurrence of the marker in the
+# line of text. Put the answer in the variable 'replaced'.
+# Hint: You can find out the length of a string by command
+# len(string). We might test your code with different markers!
+
+# Example 1
+marker = "AFK"
+replacement = "away from keyboard"
+line = "I will now go to sleep and be AFK until lunch time tomorrow."
+
+# Example 2 # uncomment this to test with different input
+#marker = "EY"
+#replacement = "Eyjafjallajokull"
+#line = "The eruption of the volcano EY in 2010 disrupted air travel in Europe for 6 days."
+
+###
+# YOUR CODE BELOW. DO NOT DELETE THIS LINE
+###
+
+replaced =
+
+print replaced
+# Example 1 output should be:
+#>>> I will now go to sleep and be away from keyboard until lunch time tomorrow.
+# Example 2 output should be:
+#>>> The eruption of the volcano Eyjafjallajokull in 2010 disrupted air travel in Europe for 6 days.
+
+#######################################
+#Lesson One - Palindrome Problem 
+###############################################
+#       Exercise by Websten from forums       #
+###############################################
+# A palindrome is a word or a phrase that reads 
+# the same backwards as forwards. Make a program 
+# that checks if a word is a palindrome. 
+# If the word is a palindrome, print 0 to the terminal,
+# -1 otherwise. 
+# The word contains lowercase letters a-z and 
+# will be at least one character long.
+#
+### HINT! ###
+# You can read a string backwards with the following syntax:
+# string[::-1] - where the "-1" means one step back.
+# This exercise can be solved with only unit 1 knowledge
+# (no loops or conditions)
+
+#word = "madam"
+# test case 2
+word = "madman" # uncomment this to test
+
+###
+# YOUR CODE HERE. DO NOT DELETE THIS LINE OR ADD A word DEFINITION BELOW IT.
+###
+bw_word=word[::-1]
+
+is_palindrome =bw_word.find(word)
+
+# TESTING
+print is_palindrome
+# >>> 0  # outcome if word == "madam"
+# >>> -1 # outcome if word == "madman"
+
+############################################
+#Lesson Two
+
+#Quiz - Square
+
+# Define a procedure, square, that takes one number 
+# as its input, and returns the square of that 
+# number (result of multiplying
+# the number by itself).
+# To help you out, the code for sum(a,b) is below.
+
+def sum(a,b):
+    c = a + b
+    return c
+
+def square(n):
+    n2 = n*n
+    return n2
+
+
+# To test your procedure, uncomment the print 
+# statement below, by removing the hash mark (#) 
+# at the beginning of the line.
+
+# Do not remove the # from in front of the line 
+# with the arrows (>>>). Lines which begin like 
+# this (#>>>) are included to show the results
+# you should see when run your procedure.
+
+print square(5)
+#>>> 25
+######################
+#Quiz Sum of Three
+# Define a procedure, sum3, that takes three
+# inputs, and returns the sum of the three
+# input numbers.
+# To help you out, the code for sum(a,b) is below.
+
+def sum(a,b):
+    return a + b
+
+def sum3(a,b,c):
+    return a+b+c
+
+
+
+
+
+print sum3(1,2,3)
+#>>> 6
+
+print sum3(93,53,70)
+#>>> 216
+
+##############################
+# Define a procedure, abbaize, that takes
+# two strings as its inputs, and returns
+# a string that is the first input,
+# followed by two repetitions of the second input,
+# followed by the first input.
+
+
+def abbaize(a,b):
+    return a+b+b+a
+
+
+
+
+
+
+print abbaize('a','b')
+#>>> 'abba'
+
+print abbaize('dog','cat')
+#>>> 'dogcatcatdog'
+
+###############################
+# Quiz Find Second
+# Define a procedure, find_second, that takes
+# two strings as its inputs: a search string
+# and a target string. It should return a
+# number that is the position of the second
+# occurrence of the target string in the
+# search string.
+
+def find_second (search,target):
+    first=search.find(target)
+    return search.find (target,first+1)
+    
+danton = "De l'audace, encore de l'audace, toujours de l'audace"
+print find_second(danton, 'audace')
+#>>> 25
+
+twister = "she sells seashells by the seashore"
+print find_second(twister,'she')
+#>>> 13
+
+###################
+#Quiz If Statements
+
+# Define a procedure, bigger, that takes in
+# two numbers as inputs, and returns the
+# greater of the two inputs.
+
+
+def bigger(a,b):
+    if a==b:
+        return a
+    if a>b:
+        return a
+    if b>a:
+        return b
+
+
+
+
+print bigger(2,7)
+#>>> 7
+
+print bigger(3,2)
+#>>> 3
+
+print bigger(3,3)
+#>>> 3
+
+######################
+#Quiz Is Friend
+# Define a procedure, is_friend, that
+# takes a string as its input, and
+# returns a Boolean indicating if
+# the input string is the name of
+# a friend. Assume I am friends with
+# everyone whose name starts with D
+# and no one else. You do not need to
+# check for the lower case 'd'
+
+# below code prints d as answer
+#s='diane'
+#f=s[0]
+#print f
+
+def is_friend(s):
+    friend='D'
+    return s[0]==friend
+
+print is_friend('Diane')
+#>>> True
+
+print is_friend('Fred')
+#>>> False
+
+##### if syntax example below
+#def bigger(a,b):
+#    if a==b:
+#        return a
+#    if a>b:
+#        return a
+#    if b>a:
+#        return b
+
+##########################
+#Quiz More Friends
+# Define a procedure, is_friend, that takes
+# a string as its input, and returns a
+# Boolean indicating if the input string
+# is the name of a friend. Assume
+# I am friends with everyone whose name
+# starts with either 'D' or 'N', but no one
+# else. You do not need to check for
+# lower case 'd' or 'n'
+
+def is_friend(name):
+    friend='D'
+    friend2='N'
+    return name[0]==friend or name[0]==friend2
+
+
+
+print is_friend('Diane')
+#>>> True
+
+print is_friend('Ned')
+#>>> True
+
+print is_friend('Moe')
+#>>> False
+
+#############################
+#Quiz Print Numbers
+# Define a procedure, print_numbers, that takes
+# as input a positive whole number, and prints 
+# out all the whole numbers from 1 to the input
+# number.
+
+# Make sure your procedure prints "upwards", so
+# from 1 up to the input number.
+
+#WRONG WORKING CODE BELOW - MUST PRINT NUMBERS SMALLEST TO LARGEST
+def print_numbers(a):
+    while a != 0:
+        print a
+        a=a-1
+    
+print_numbers(3)
+#>>> 1
+#>>> 2
+#>>> 3
+
+#CORRECT WORKING CODE BELOW
+def print_numbers(a):
+    b=0
+    while b != a:
+        b=b+1
+        print b
+
+#PROF ANSWER BELOW    
+def print_numbers(n):
+     i=1
+     while i <= n
+         print i
+         i = i + 1
+
+print_numbers(3)
+#>>> 1
+#>>> 2
+#>>> 3
+#####################################
+#Quiz Factorial ERROR A:  Answer all is 1
+#def factorial(n):
+#    i=1
+#    a=1
+#    b=1
+#    while i > 1:
+#        i=n-1
+#        a=n(i)
+#        b=a*b
+#    return b
+       
+#print factorial(4)
+#>>> 24  err 1
+#print factorial(5)
+#>>> 120 err 1
+#print factorial(6)
+#>>> 720 err 1
+
+#ERROR B:  Answer to all is None
+#def factorial(n):
+#    i=1
+#    a=1
+#    n=1
+#    while i > 1:
+#        i=n-1
+#        a=n*i
+#        b=a+b
+#        return b
+#ERROR C:  Answer to all is zero 0        
+#def factorial(n):
+#    i=1
+#    a=1
+#    n=1
+#    b=0
+#    while i >= 1:
+#        i=n-1
+#        a=n*i
+#        b=a+b
+#    return b
+      
+#ERROR D:  Infinite loop
+#def factorial(n):
+#    i=1
+#    a=1
+#    b=0
+#    while i >= 1:
+#        i=n-1
+#        a=n*i
+#        b=a+b
+#    return b
+    
+#CORRECT ANSWER!  YAY!
+def factorial(n):
+    b=1
+    while n >= 1:
+        b=b*n
+        n=n-1
+    return b
+            
+
+print factorial(4)
+#>>> 24
+print factorial(5)
+#>>> 120
+print factorial(6)
+#>>> 720
