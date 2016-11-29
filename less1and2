@@ -440,3 +440,95 @@ print factorial(5)
 #>>> 120
 print factorial(6)
 #>>> 720
+
+## Break Quiz
+# Use this to try out anything you like. Use print to display your answer
+# when you press the "Test Run" button.
+# Use the "Reset" button to reset the screen 
+
+#While <T>
+# <S>
+
+#<T>
+#countdown >= 0:
+
+#<S>
+#print countdown
+#countdown = countdown - 1
+
+#while True:
+#    print 'Hello'
+
+#<code>
+#while True:
+#    print 'Hello'
+#    while True:
+#        break
+#    print 'Goodbye'
+#    break
+#</code>
+#which codes has same results as the following for countdown?
+def countdown(T):
+#    while T >= 0:
+#        print T
+#        T = T - 1
+
+#same#
+#    while T>=0:
+#        if False: 
+#            break
+#        print T
+#        T = T-1
+
+#diff#
+#    while True:
+#        print T
+#        break
+
+#diff#
+#    while True:
+#        if T:
+#            break
+#        print T
+#        T=T-1
+    
+#same#    
+#    while T:
+#        print T
+#        T=T-1
+#        if T:
+#            print T
+#            T=T-1
+#        else:
+#            break
+
+
+#######No links quiz
+
+def get_next_target(page):
+   start_link=page.find('<a href=')
+   if start_link == -1:
+      return None, 0
+   start_quote = page.find('"', start_link)
+   end_quote = page.find('"', start_quote + 1)
+   url = page[start_quote + 1:end_quote]
+   return url, end_quote
+   
+url, endpos = get_next_target('<div class="udacity float-left"><a href="http://udacity.com">')
+if url:
+   print "Here!"
+else:
+   print "Not Here!"
+   
+###### Print All Links
+
+def print_all_links(page):
+   while True:
+      url, endpos = get_next_target(page)
+      if url:
+         print url
+         page = page[endpos:]
+      else:
+         break
+        
+print_all_links(get_page('http://xkcd.com/353'))
