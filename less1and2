@@ -532,3 +532,44 @@ def print_all_links(page):
          break
         
 print_all_links(get_page('http://xkcd.com/353'))
+
+#####Find_last##
+# Define a procedure, find_last, that takes as input
+# two strings, a search string and a target string,
+# and returns the last position in the search string
+# where the target string appears, or -1 if there
+# are no occurrences.
+#
+# Example: find_last('aaaa', 'a') returns 3
+
+# Make sure your procedure has a return statement.
+
+def find_last(s,t):   
+    last_point = -1
+    while s.find(t) != -1:
+        find_point = s.find(t,last_point+1)
+        if find_point == -1:
+            return last_point
+        last_point = find_point
+    return last_point
+
+print find_last('aaaa','a')
+#>>> 3
+
+print find_last('aaaaa', 'aa')
+#>>> 3
+
+print find_last('aaaa', 'b')
+#>>> -1
+
+print find_last("111111111", "1")
+#>>> 8
+
+print find_last("222222222", "")
+#>>> 9
+
+print find_last("", "3")
+#>>> -1
+
+print find_last("", "")
+#>>> 0
