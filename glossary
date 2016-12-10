@@ -1,0 +1,17 @@
+
+
+#module = file containing Python definitions and statements intended for use in other Python programs
+#pdb = python debugger module
+
+#import -- three ways to import
+
+### import 1
+import math
+x = math.sqrt(10)
+
+###import 2
+
+
+from math import *   # Import all the identifiers from math,
+                     #   adding them to the current namespace.
+x = sqrt(10)         # Use them without qualification.
