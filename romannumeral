@@ -1,0 +1,36 @@
+# problem on checkio.org
+
+def checkio(data): 
+    I=1
+    V=5
+    X=10
+    L=50
+    C=100
+    D=500
+    M=1000
+    m=data/M
+    d=(data%M)/D
+    c=(data%D)/C
+    l=(data%C)/L
+    x=(data%L)/X
+    v=(data%X)/V
+    i=data%V
+    answer = m*'M'+d*'D'+c*'C'+l*'L'+x*'X'+v*'V'+i*'I'
+    print answer, data
+    #print m, d, c, l, x, v, i
+    return answer, data
+    
+    
+#For a given number 
+#    determine how many place values it has (thousands, hundreds, tens, ones)
+#    determine absolute value for that place value (2,3,4,etc.)
+#    translate to Roman Numeral
+#   except when four characters being repeated in succession (such as IIII or XXXX)
+#       then use subtractive notation
+#
+if __name__ == '__main__':
+    #These "asserts" using only for self-checking and not necessary for auto-testing
+    #assert checkio(6) == 'VI 6' #VI
+    #assert checkio(76) == 'LXXVI', '76' #LXXVI
+    assert checkio(499) == 'CDXCIX', '499'#CCCCLXXXXVIIII
+    #assert checkio(3888) == 'MMMDCCCLXXXVIII', '3888' #MMMDCCCLXXXVIII
